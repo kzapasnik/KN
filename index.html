@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kamila Nowak — Tłumacz języka angielskiego, autor tekstów</title>
+  <title>Kamila Nowak — Tłumacz języka angielskiego</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -18,17 +18,15 @@
       --shadow-soft:0 1.5px 4px rgba(58,45,35,.10);
       --radius:18px;
       --pastel:#EFE3D7;
-      --beige-text:#FFF7EC;  /* jasny beż do napisu na brązowym CTA */
+      --beige-text:#FFF7EC;
     }
 
     * {box-sizing:border-box;}
     html {scroll-behavior:smooth;}
     body {
       margin:0; font-family:Inter, sans-serif; color:var(--ink); background:var(--paper);
-      /* warstwa 1: delikatne znaki wodne (rozrzucone ikony) */
       background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cg stroke='%237A5C45' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' opacity='.06' fill='none'%3E%3C!-- pióro w kałamarzu --%3E%3Cpath d='M80 720c40-80 120-200 260-280-50 120-160 240-260 280zM160 710c-8 8 14 28 14 28M100 760c-16 16 0 26 16 26'/%3E%3C!-- otwarta książka --%3E%3Cpath d='M560 160c80-40 160 0 160 0v160s-80-40-160 0V160zM720 160c80-40 160 0 160 0v160s-80-40-160 0V160z'/%3E%3C!-- kubek herbaty --%3E%3Crect x='300' y='420' width='150' height='80' rx='16'/%3E%3Cpath d='M450 435h40a20 20 0 0 1 0 40h-40M360 400c0-16 16-16 16-32M392 400c0-16 16-16 16-32'/%3E%3C/g%3E%3C/svg%3E"),
-        /* warstwa 2: ziarnista faktura papieru */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cg stroke='%237A5C45' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' opacity='.06' fill='none'%3E%3Cpath d='M80 720c40-80 120-200 260-280-50 120-160 240-260 280zM160 710c-8 8 14 28 14 28M100 760c-16 16 0 26 16 26'/%3E%3Cpath d='M560 160c80-40 160 0 160 0v160s-80-40-160 0V160zM720 160c80-40 160 0 160 0v160s-80-40-160 0V160z'/%3E%3Crect x='300' y='420' width='150' height='80' rx='16'/%3E%3Cpath d='M450 435h40a20 20 0 0 1 0 40h-40M360 400c0-16 16-16 16-32M392 400c0-16 16-16 16-32'/%3E%3C/g%3E%3C/svg%3E"),
         url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 .045 .06 .045 0 0 0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E\");
       background-size:900px 900px, 320px 320px;
       background-repeat:repeat, repeat;
@@ -37,7 +35,6 @@
 
     a {color:var(--accent); text-decoration:none; transition:filter .2s, box-shadow .2s, background-color .2s;}
     a:hover {filter:brightness(1.12); background:var(--accent-10); border-radius:8px;}
-    /* brand: bez podświetlenia na hover */
     .brand a:hover {background:transparent !important; filter:none !important;}
 
     header {position:sticky; top:0; z-index:20; background:rgba(255,255,255,.8); backdrop-filter:blur(8px); box-shadow:var(--shadow-soft);}
@@ -66,7 +63,7 @@
     .hero h1 {font-family:'Dancing Script', cursive; font-size:clamp(36px, 6vw, 68px); color:var(--accent); margin:0 0 8px; text-align:left;}
     .nowrap {white-space:nowrap;}
 
-    /* CTA — stan DOMYŚLNY: pełny brąz + beżowy napis */
+    /* CTA */
     .cta-box {
       display:inline-block;
       background:var(--accent);
@@ -77,22 +74,16 @@
       transition:all .2s ease;
     }
     .cta-box a {
-      color:var(--beige-text) !important;
+      color:var(--beige-text)!important;
       font-weight:600;
       text-decoration:none;
     }
-    /* CTA — HOVER: kontur, brązowy napis, bez tła */
-    .cta-box:hover,
-    .cta-box:focus-visible {
-      background:transparent !important;
+    .cta-box:hover, .cta-box:focus-visible {
+      background:transparent!important;
       color:var(--accent);
       border-color:var(--accent);
     }
-    .cta-box:hover a,
-    .cta-box:focus-visible a {
-      color:var(--accent) !important;
-    }
-    .cta-box a:hover {background:transparent !important; filter:none !important;}
+    .cta-box:hover a, .cta-box:focus-visible a {color:var(--accent)!important;}
 
     .hero-logo {width:100%; max-width:320px; height:auto; display:block; margin:0 auto; filter:drop-shadow(0 6px 18px rgba(58,45,35,.12));}
 
@@ -116,11 +107,11 @@
 
     footer {text-align:center; color:var(--ink); padding:40px 0;}
 
-    @media (max-width:880px) {
-      nav.primary {display:none;}
-      .menu-toggle {display:block;}
-      .hero-grid {grid-template-columns:1fr;}
-      .hero h1 {text-align:center;}
+    @media (max-width:880px){
+      nav.primary{display:none;}
+      .menu-toggle{display:block;}
+      .hero-grid{grid-template-columns:1fr;}
+      .hero h1{text-align:center;}
     }
   </style>
 </head>
@@ -168,11 +159,11 @@
     <section id="o-mnie">
       <h2 class="section-title">O mnie</h2>
       <div class="wrap grid-2">
-        <div class="card" aria-label="Zdjęcie Kamili Nowak">
+        <div class="card">
           <img class="avatar" src="kn.png" alt="Kamila Nowak" />
         </div>
         <div class="card">
-          <!--<h3>Kamila Nowak — autor bajek, tłumacz języka angielskiego</h3>-->
+          <h3>Kamila Nowak — autor bajek, tłumacz języka angielskiego</h3>
           <p class="about-text">
             Jestem tłumaczką angielsko-polską, nauczycielką i lektorką języka angielskiego, a także autorką artykułów o nauczaniu i literaturze, zwłaszcza dziecięcej. Tworzę również własne teksty i bajki dla najmłodszych. W odbiorze literatury dziecięcej wierzę, że warto sięgać także po opracowania literaturoznawcze – to one pozwalają lepiej zrozumieć jej konteksty kulturowe, wychowawcze i estetyczne. Sama często wspieram się nimi w swojej pracy i pisaniu, aby wydobywać głębsze sensy z książek, które na pierwszy rzut oka wydają się proste. Prywatnie jestem mamą dwójki urwisów, dla których piszę, z którymi czytam i bez których nie wyobrażam sobie świata. Jestem też molem książkowym i miłośniczką leśnych spacerów – bo w literaturze i w przyrodzie zawsze znajduję nowe inspiracje.
           </p>
@@ -186,7 +177,6 @@
         <div class="card">
           <ul class="list">
             <li>
-              <!-- punktor: pióro ptasie -->
               <svg class="feather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M20 3c-4 0-8 3-11 6-3 3-5 7-5 7l6-1 10-10z"/>
                 <path d="M9 15l6-6"/>
@@ -195,7 +185,6 @@
               <a href="https://tataczyta.com/gry-fabularne-w-edukacji-literackiej/" target="_blank" rel="noopener">Gry fabularne w edukacji literackiej</a>
             </li>
             <li>
-              <!-- punktor: pióro ptasie -->
               <svg class="feather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M20 3c-4 0-8 3-11 6-3 3-5 7-5 7l6-1 10-10z"/>
                 <path d="M9 15l6-6"/>
@@ -214,12 +203,17 @@
         <div class="contact-card">
           <div class="contact-list">
             <div class="contact-item">
+              <!-- koperta -->
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/>
                 <path d="M22 8l-10 6L2 8"/>
               </svg>
               <a href="mailto:k.d.kraszewska@gmail.com">k.d.kraszewska@gmail.com</a>
               <span aria-hidden="true">•</span>
+              <!-- LinkedIn -->
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.46 4.73-2.46 5.06 0 6 3.33 6 7.66V24h-5v-7.4c0-1.76-.03-4.02-2.45-4.02-2.45 0-2.82 1.9-2.82 3.88V24h-5V8z"/>
+              </svg>
               <a href="https://www.linkedin.com/in/kamila-nowak-632384153/" target="_blank" rel="noopener">LinkedIn</a>
             </div>
           </div>
@@ -233,16 +227,13 @@
   </footer>
 
   <script>
-    // rok w stopce
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // menu mobilne
     const toggle = document.getElementById('menuToggle');
     const mobileNav = document.getElementById('mobileNav');
     toggle.addEventListener('click', ()=>{ toggle.classList.toggle('active'); mobileNav.classList.toggle('show'); });
     document.querySelectorAll('#mobileNav a').forEach(a=>a.addEventListener('click', ()=>{ mobileNav.classList.remove('show'); toggle.classList.remove('active'); }));
 
-    // zawsze wróć na górę po odświeżeniu / powrocie z cache
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     function forceTop(){
       if (location.hash) history.replaceState(null,'',location.pathname+location.search);
