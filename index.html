@@ -3,99 +3,141 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kamila Nowak — Tłumacz języka angielskiego</title>
+  <title>Kamila Nowak — Tłumacz języka angielskiego, autor tekstów</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --paper: #FBF7F2;
-      --ink: #2E2A27;
-      --violet: #4B2C7A;
-      --violet-10: rgba(75,44,122,.10);
-      --card: #FFFFFF;
-      --shadow: 0 10px 30px rgba(0,0,0,.06);
-      --radius: 18px;
-      --pastel: #EFE8FA;
+      --paper:#F7F1E8;
+      --ink:#3B2F2F;
+      --accent:#7A5C45;
+      --accent-10:rgba(122,92,69,.10);
+      --card:#FFFFFF;
+      --shadow:0 6px 18px rgba(58,45,35,.12);
+      --shadow-soft:0 1.5px 4px rgba(58,45,35,.10);
+      --radius:18px;
+      --pastel:#EFE3D7;
+      --beige-text:#FFF7EC;  /* jasny beż do napisu na brązowym CTA */
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; font-family: Inter, sans-serif; color: var(--ink); background: var(--paper); }
+    * {box-sizing:border-box;}
+    html {scroll-behavior:smooth;}
+    body {
+      margin:0; font-family:Inter, sans-serif; color:var(--ink); background:var(--paper);
+      /* warstwa 1: delikatne znaki wodne (rozrzucone ikony) */
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cg stroke='%237A5C45' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' opacity='.06' fill='none'%3E%3C!-- pióro w kałamarzu --%3E%3Cpath d='M80 720c40-80 120-200 260-280-50 120-160 240-260 280zM160 710c-8 8 14 28 14 28M100 760c-16 16 0 26 16 26'/%3E%3C!-- otwarta książka --%3E%3Cpath d='M560 160c80-40 160 0 160 0v160s-80-40-160 0V160zM720 160c80-40 160 0 160 0v160s-80-40-160 0V160z'/%3E%3C!-- kubek herbaty --%3E%3Crect x='300' y='420' width='150' height='80' rx='16'/%3E%3Cpath d='M450 435h40a20 20 0 0 1 0 40h-40M360 400c0-16 16-16 16-32M392 400c0-16 16-16 16-32'/%3E%3C/g%3E%3C/svg%3E"),
+        /* warstwa 2: ziarnista faktura papieru */
+        url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 .045 .06 .045 0 0 0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E\");
+      background-size:900px 900px, 320px 320px;
+      background-repeat:repeat, repeat;
+      background-attachment:fixed, fixed;
+    }
 
-    a { color: var(--violet); text-decoration: none; transition: filter 0.2s, box-shadow 0.2s; }
-    a:hover { filter: brightness(1.12); }
-    a:active { box-shadow: 0 2px 6px rgba(75,44,122,.35); border-radius: 6px; }
+    a {color:var(--accent); text-decoration:none; transition:filter .2s, box-shadow .2s, background-color .2s;}
+    a:hover {filter:brightness(1.12); background:var(--accent-10); border-radius:8px;}
+    /* brand: bez podświetlenia na hover */
+    .brand a:hover {background:transparent !important; filter:none !important;}
 
-    header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.8); backdrop-filter: blur(8px); }
-    .wrap { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
-    .nav { display: flex; justify-content: space-between; align-items: center; height: 72px; gap: 12px; }
-    .brand { display: flex; align-items: center; gap: 10px; color: var(--violet); font-family: 'Dancing Script', cursive; font-size: 28px; font-weight: 700; }
-    .brand a { display:flex; align-items:center; gap:10px; color: var(--violet); }
-    .brand-cup { width:22px; height:22px; color: var(--violet); }
+    header {position:sticky; top:0; z-index:20; background:rgba(255,255,255,.8); backdrop-filter:blur(8px); box-shadow:var(--shadow-soft);}
+    .wrap {max-width:1060px; margin:0 auto; padding:0 24px;}
+    .nav {display:flex; justify-content:space-between; align-items:center; height:72px; gap:12px;}
+    .brand {display:flex; align-items:center; gap:10px; color:var(--accent); font-family:'Dancing Script', cursive; font-size:28px; font-weight:700;}
+    .brand a {display:flex; align-items:center; gap:10px; color:var(--accent);}
+    .brand-logo {height:28px; width:auto; display:inline-block;}
 
-    nav.primary { display: flex; gap: 10px; }
-    nav.primary a { color: var(--violet); padding: 10px 14px; border-radius: 999px; }
-    nav.primary a:hover { background: var(--violet-10); }
+    nav.primary {display:flex; gap:10px;}
+    nav.primary a {color:var(--accent); padding:10px 14px; border-radius:999px;}
+    nav.primary a:hover {background:var(--accent-10);}
 
-    .menu-toggle { display: none; background: none; border: none; padding: 8px; border-radius: 10px; cursor: pointer; }
-    .menu-toggle svg { width: 28px; height: 28px; stroke: var(--violet); transition: transform .2s ease; }
-    .menu-toggle.active svg { transform: rotate(90deg); }
+    .menu-toggle {display:none; background:none; border:none; padding:8px; border-radius:10px; cursor:pointer;}
+    .menu-toggle svg {width:28px; height:28px; stroke:var(--accent); transition:transform .2s ease;}
+    .menu-toggle.active svg {transform:rotate(90deg);}
+    .mobile-nav {display:none; position:absolute; inset:72px 0 auto 0; background:rgba(255,255,255,.97); box-shadow:var(--shadow-soft);}
+    .mobile-nav .inner {padding:12px 24px 18px; display:grid; gap:8px;}
+    .mobile-nav a {padding:12px; border-radius:12px;}
+    .mobile-nav a:hover {background:var(--accent-10);}
+    .mobile-nav.show {display:block;}
 
-    .mobile-nav { display: none; position: absolute; inset: 72px 0 auto 0; background: rgba(255,255,255,.97); box-shadow: var(--shadow); }
-    .mobile-nav .inner { padding: 12px 24px 18px; display: grid; gap: 8px; }
-    .mobile-nav a { padding: 12px; border-radius: 12px; }
-    .mobile-nav a:hover { background: var(--violet-10); }
-    .mobile-nav.show { display: block; }
+    .hero {padding:72px 0 48px;}
+    .hero-grid {display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center;}
+    .hero .text {display:flex; flex-direction:column; align-items:center;}
+    .hero h1 {font-family:'Dancing Script', cursive; font-size:clamp(36px, 6vw, 68px); color:var(--accent); margin:0 0 8px; text-align:left;}
+    .nowrap {white-space:nowrap;}
 
-    .hero { text-align: center; padding: 80px 20px 48px; display:grid; gap: 12px; }
-    .hero h1 { font-family: 'Dancing Script', cursive; font-size: clamp(36px, 6vw, 68px); color: var(--violet); margin: 0; }
-    .hero p { max-width: 640px; margin: 0 auto; color: var(--ink); font-size: 18px; }
-    .cta-box { display: inline-block; background: var(--violet); color: white; padding: 12px 24px; border-radius: 12px; box-shadow: var(--shadow); margin: 16px auto 0; }
-    .cta-box a { color: #fff; font-weight: 600; }
+    /* CTA — stan DOMYŚLNY: pełny brąz + beżowy napis */
+    .cta-box {
+      display:inline-block;
+      background:var(--accent);
+      color:var(--beige-text);
+      padding:12px 24px;
+      border-radius:12px;
+      border:2px solid var(--accent);
+      transition:all .2s ease;
+    }
+    .cta-box a {
+      color:var(--beige-text) !important;
+      font-weight:600;
+      text-decoration:none;
+    }
+    /* CTA — HOVER: kontur, brązowy napis, bez tła */
+    .cta-box:hover,
+    .cta-box:focus-visible {
+      background:transparent !important;
+      color:var(--accent);
+      border-color:var(--accent);
+    }
+    .cta-box:hover a,
+    .cta-box:focus-visible a {
+      color:var(--accent) !important;
+    }
+    .cta-box a:hover {background:transparent !important; filter:none !important;}
 
-    section { padding: 72px 0; }
-    .section-title { font-family: 'Dancing Script', cursive; color: var(--violet); font-size: clamp(28px, 5vw, 54px); margin-bottom: 20px; text-align: center; }
+    .hero-logo {width:100%; max-width:320px; height:auto; display:block; margin:0 auto; filter:drop-shadow(0 6px 18px rgba(58,45,35,.12));}
 
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-    .card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px; }
+    section {padding:72px 0;}
+    .section-title {font-family:'Dancing Script', cursive; color:var(--accent); font-size:clamp(28px, 5vw, 54px); margin-bottom:20px; text-align:center;}
+    .grid-2 {display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:24px;}
+    .card {background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px;}
+    .avatar {width:260px; height:260px; border-radius:50%; object-fit:cover; border:6px solid #FFF9F3; box-shadow:var(--shadow-soft); display:block; margin:0 auto;}
+    #o-mnie {padding-bottom:36px;}
+    .about-text {color:#2C1E16;}
 
-    .avatar { width: 260px; height: 260px; border-radius: 50%; object-fit: cover; border: 6px solid white; box-shadow: 0 8px 24px rgba(0,0,0,.08); display: block; margin: 0 auto; }
+    .list {list-style:none; padding:0; margin:0; display:grid; gap:12px;}
+    .list li {display:flex; align-items:center; gap:10px;}
+    .feather {width:24px; height:24px; color:var(--accent);}
 
-    .portfolio-item { display:grid; gap:10px; align-items:center; grid-template-columns: 64px 1fr; }
-    .book-icon { width: 64px; height: 64px; }
+    .contact-section {background:linear-gradient(180deg, var(--pastel), rgba(255,255,255,0));}
+    .contact-card {background:#fff; border-radius:16px; box-shadow:var(--shadow); padding:20px; display:grid; gap:14px; justify-items:center;}
+    .contact-list {display:flex; gap:24px; flex-wrap:wrap; justify-content:center; align-items:center;}
+    .contact-item {display:flex; align-items:center; gap:10px; font-size:18px;}
+    .icon {width:22px; height:22px; color:var(--accent); stroke-width:2.6;}
 
-    .contact-section { background: linear-gradient(180deg, var(--pastel), rgba(255,255,255,0)); }
-    .contact-card { background: #fff; border-radius: 16px; box-shadow: var(--shadow); padding: 20px; display: grid; gap: 14px; }
-    .contact-list { display: grid; gap: 16px; justify-content: start; }
-    .contact-item { display: flex; align-items: center; gap: 10px; font-size: 18px; }
-    .icon { width: 22px; height: 22px; color: var(--violet); }
+    footer {text-align:center; color:var(--ink); padding:40px 0;}
 
-    footer { text-align: center; color: var(--ink); padding: 40px 0; }
-
-    @media (max-width: 880px) {
-      nav.primary { display: none; }
-      .menu-toggle { display: block; }
+    @media (max-width:880px) {
+      nav.primary {display:none;}
+      .menu-toggle {display:block;}
+      .hero-grid {grid-template-columns:1fr;}
+      .hero h1 {text-align:center;}
     }
   </style>
 </head>
 <body id="top">
+
   <header>
     <div class="wrap nav">
       <div class="brand">
-        <a href="#top" aria-label="Przejdź na górę" class="brand-link">
-          <svg class="brand-cup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3" y="9" width="13" height="8" rx="3"></rect>
-            <path d="M16 11h2a3 3 0 0 1 0 6h-2"></path>
-            <path d="M8 7c0-2 2-2 2-4M12 7c0-2 2-2 2-4"></path>
-          </svg>
+        <a href="#top">
+          <img src="logo.png" alt="Logo KN" class="brand-logo" />
           <span>Kamila&nbsp;Nowak</span>
         </a>
       </div>
       <button class="menu-toggle" aria-label="Menu" id="menuToggle">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
-      <nav class="primary" aria-label="Główna nawigacja">
+      <nav class="primary">
         <a href="#o-mnie">O&nbsp;mnie</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#kontakt">Kontakt</a>
@@ -112,20 +154,28 @@
 
   <main>
     <section class="hero">
-      <h1>Kamila Nowak – tłumacz języka angielskiego</h1>
-      <p>Specjalizuję się w tłumaczeniach z i na język angielski dla branż: marketing, IT oraz kultura/sztuka. Dbam o sens, ton i estetykę tekstu.</p>
-      <div class="cta-box"><a href="#kontakt">Napisz do mnie</a></div>
+      <div class="wrap hero-grid">
+        <div class="text">
+          <h1>Kamila Nowak – <span class="nowrap">tłumacz języka angielskiego,</span> autor tekstów</h1>
+          <div class="cta-box"><a href="#kontakt">Napisz do mnie</a></div>
+        </div>
+        <div>
+          <img src="logo.png" alt="Logo KN w formie książki" class="hero-logo"/>
+        </div>
+      </div>
     </section>
 
     <section id="o-mnie">
       <h2 class="section-title">O mnie</h2>
       <div class="wrap grid-2">
-        <div class="card" style="text-align:center; display:grid; gap:12px; align-content:start;">
-          <img class="avatar" src="kn.png" alt="Kamila Nowak" />
+        <div class="card" aria-label="Zdjęcie Kamili Nowak">
+          <img class="avatar" src="kn.jpg" alt="Kamila Nowak" />
         </div>
         <div class="card">
-          <h3>Kamila Nowak — autor bajek</h3>
-          <p>Jestem tłumaczką angielsko-polską, nauczycielką i lektorką języka angielskiego, a także autorką artykułów o nauczaniu i literaturze, zwłaszcza dziecięcej. Tworzę również własne teksty i bajki dla najmłodszych. W odbiorze literatury dziecięcej wierzę, że warto sięgać także po opracowania literaturoznawcze – to one pozwalają lepiej zrozumieć jej konteksty kulturowe, wychowawcze i estetyczne. Sama często wspieram się nimi w swojej pracy i pisaniu, aby wydobywać głębsze sensy z książek, które na pierwszy rzut oka wydają się proste. Prywatnie jestem mamą dwójki urwisów, dla których piszę, z którymi czytam i bez których nie wyobrażam sobie świata. Jestem też molem książkowym i miłośniczką leśnych spacerów – bo w literaturze i w przyrodzie zawsze znajduję nowe inspiracje.</p>
+          <!--<h3>Kamila Nowak — autor bajek, tłumacz języka angielskiego</h3>-->
+          <p class="about-text">
+            Jestem tłumaczką angielsko-polską, nauczycielką i lektorką języka angielskiego, a także autorką artykułów o nauczaniu i literaturze, zwłaszcza dziecięcej. Tworzę również własne teksty i bajki dla najmłodszych. W odbiorze literatury dziecięcej wierzę, że warto sięgać także po opracowania literaturoznawcze – to one pozwalają lepiej zrozumieć jej konteksty kulturowe, wychowawcze i estetyczne. Sama często wspieram się nimi w swojej pracy i pisaniu, aby wydobywać głębsze sensy z książek, które na pierwszy rzut oka wydają się proste. Prywatnie jestem mamą dwójki urwisów, dla których piszę, z którymi czytam i bez których nie wyobrażam sobie świata. Jestem też molem książkowym i miłośniczką leśnych spacerów – bo w literaturze i w przyrodzie zawsze znajduję nowe inspiracje.
+          </p>
         </div>
       </div>
     </section>
@@ -133,21 +183,27 @@
     <section id="portfolio">
       <h2 class="section-title">Portfolio</h2>
       <div class="wrap">
-        <div class="card portfolio-item">
-          <svg class="book-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#FFFFFF"/>
-                <stop offset="100%" stop-color="#F1EAFE"/>
-              </linearGradient>
-            </defs>
-            <rect x="8" y="10" width="40" height="44" rx="6" fill="url(#pg)" stroke="#7D64B3" stroke-width="2"/>
-            <path d="M16 20h24M16 28h20M16 36h16" stroke="#9A86C5" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <div>
-            <a href="https://tataczyta.com/gry-fabularne-w-edukacji-literackiej/" target="_blank">Gry fabularne w edukacji literackiej</a>
-            <p style="margin:.25rem 0 0; color:#5A534E;">Tekst ekspercki — przykład pracy Kamili Nowak.</p>
-          </div>
+        <div class="card">
+          <ul class="list">
+            <li>
+              <!-- punktor: pióro ptasie -->
+              <svg class="feather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 3c-4 0-8 3-11 6-3 3-5 7-5 7l6-1 10-10z"/>
+                <path d="M9 15l6-6"/>
+                <path d="M4 20l5-5"/>
+              </svg>
+              <a href="https://tataczyta.com/gry-fabularne-w-edukacji-literackiej/" target="_blank" rel="noopener">Gry fabularne w edukacji literackiej</a>
+            </li>
+            <li>
+              <!-- punktor: pióro ptasie -->
+              <svg class="feather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 3c-4 0-8 3-11 6-3 3-5 7-5 7l6-1 10-10z"/>
+                <path d="M9 15l6-6"/>
+                <path d="M4 20l5-5"/>
+              </svg>
+              <a href="" target="_blank" rel="noopener">...</a>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -158,11 +214,12 @@
         <div class="contact-card">
           <div class="contact-list">
             <div class="contact-item">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path d="M22 8l-10 6L2 8"/></svg>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/>
+                <path d="M22 8l-10 6L2 8"/>
+              </svg>
               <a href="mailto:k.d.kraszewska@gmail.com">k.d.kraszewska@gmail.com</a>
-            </div>
-            <div class="contact-item">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.46 4.73-2.46 5.06 0 6 3.33 6 7.66V24h-5v-7.4c0-1.76-.03-4.02-2.45-4.02-2.45 0-2.82 1.9-2.82 3.88V24h-5V8z"/></svg>
+              <span aria-hidden="true">•</span>
               <a href="https://www.linkedin.com/in/kamila-nowak-632384153/" target="_blank" rel="noopener">LinkedIn</a>
             </div>
           </div>
@@ -174,12 +231,26 @@
   <footer>
     <p>© <span id="year"></span> Kamila Nowak — Tłumaczka języka angielskiego</p>
   </footer>
+
   <script>
-    document.getElementById('year').textContent=new Date().getFullYear();
+    // rok w stopce
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // menu mobilne
     const toggle = document.getElementById('menuToggle');
     const mobileNav = document.getElementById('mobileNav');
     toggle.addEventListener('click', ()=>{ toggle.classList.toggle('active'); mobileNav.classList.toggle('show'); });
     document.querySelectorAll('#mobileNav a').forEach(a=>a.addEventListener('click', ()=>{ mobileNav.classList.remove('show'); toggle.classList.remove('active'); }));
+
+    // zawsze wróć na górę po odświeżeniu / powrocie z cache
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    function forceTop(){
+      if (location.hash) history.replaceState(null,'',location.pathname+location.search);
+      scrollTo(0,0);
+    }
+    addEventListener('load', ()=>setTimeout(forceTop,0));
+    addEventListener('pageshow', e=>{ if (e.persisted) forceTop(); });
   </script>
+
 </body>
 </html>
