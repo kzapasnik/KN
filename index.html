@@ -4,6 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kamila Nowak — Tłumacz języka angielskiego</title>
+
+  <!-- Open Graph / Social preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kamilanowak.com.pl/">
+  <meta property="og:title" content="Kamila Nowak — Tłumacz języka angielskiego">
+  <meta property="og:description" content="Tłumaczenia PL-EN/EN-PL dla marketingu, IT i kultury. Dbałość o sens, ton i estetykę tekstu.">
+  <meta property="og:image" content="https://kamilanowak.com.pl/logo.png">
+  <meta property="og:image:alt" content="Logo Kamila Nowak">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kamila Nowak — Tłumacz języka angielskiego">
+  <meta name="twitter:description" content="Tłumaczenia PL-EN/EN-PL dla marketingu, IT i kultury. Dbałość o sens, ton i estetykę tekstu.">
+  <meta name="twitter:image" content="https://kamilanowak.com.pl/logo.png">
+
+  <!-- SEO dodatki -->
+  <link rel="canonical" href="https://kamilanowak.com.pl/">
+  <link rel="icon" href="/logo.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -103,7 +122,14 @@
       user-select:none;
       border-radius:8px;
     }
-    .ambient--book{bottom:-30px; left:-40px; width:min(420px,45vw)}
+    /*
+    .ambient--book{
+        top:600px;
+        bottom:80px;          
+        left:-40px;
+        width:min(420px,45vw);
+        opacity:0.22;
+    }*/
     .ambient--cup{top:-20px; right:-40px; width:min(400px,42vw)}
     .ambient--pen{bottom:-20px; left:-30px; width:min(380px,40vw)}
 
@@ -126,7 +152,8 @@
       .contact-item{display:flex; flex-direction:column; align-items:flex-start; gap:10px;}
       .separator{display:none;}
       .ambient{opacity:0.12; filter:blur(0.3px);}
-      .ambient--book,.ambient--cup,.ambient--pen{width:min(300px,80vw);}
+     /* .ambient--book{ top:20px; left:-20px; opacity:0.12; }*/
+      .ambient--cup,.ambient--pen{width:min(300px,80vw);}
     }
 
     footer{text-align:center; color:var(--ink); padding:40px 0}
@@ -169,6 +196,8 @@
   <main>
     <!-- HERO -->
     <section class="hero">
+         <!-- tło: książka -->
+     <img src="book.png" alt="" class="ambient ambient--book" aria-hidden="true" />
       <div class="wrap hero-grid">
         <div class="text">
           <h1>Kamila Nowak – <span class="nowrap">tłumacz języka angielskiego,</span> autor tekstów</h1>
@@ -183,7 +212,7 @@
     <!-- O MNIE -->
     <section id="o-mnie">
       <!-- tło: książka -->
-      <img src="book.png" alt="" class="ambient ambient--book" aria-hidden="true" />
+     <!-- <img src="book.png" alt="" class="ambient ambient--book" aria-hidden="true" />-->
 
       <h2 class="section-title">O mnie</h2>
 
